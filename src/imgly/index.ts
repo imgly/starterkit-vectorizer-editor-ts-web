@@ -134,5 +134,4 @@ export async function initVectorizerEditor(cesdk: CreativeEditorSDK) {
   // - Canvas menu: Adds "Vectorize" option when an image is selected
   // The vectorizer converts raster images into scalable vector graphics
   await setupVectorizerPlugin(cesdk);
-
 }

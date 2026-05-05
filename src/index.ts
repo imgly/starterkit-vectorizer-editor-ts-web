@@ -42,9 +42,7 @@ CreativeEditorSDK.create('#cesdk_container', config)
 
     // Load the vectorizer demo scene from the public showcases URL
     // This scene contains an image optimized for demonstrating vectorization
-    await cesdk.loadFromArchiveURL(
-      resolveAssetPath('/assets/scene.archive')
-    );
+    await cesdk.loadFromArchiveURL(resolveAssetPath('/assets/scene.archive'));
 
     // Select the image block for immediate vectorization demonstration
     const imageBlock = cesdk.engine.block.findByName('SelectedImage')[0];
