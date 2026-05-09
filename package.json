@@ -9,8 +9,8 @@
     "check:syntax": "tsc --noEmit"
   },
   "dependencies": {
-    "@cesdk/cesdk-js": "latest",
-    "@imgly/plugin-vectorizer-web": "latest"
+    "@cesdk/cesdk-js": "^1.75.0-rc.4",
+    "@imgly/plugin-vectorizer-web": "^1.74.0"
   },
   "devDependencies": {
     "typescript": "^5.0.0",

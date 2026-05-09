@@ -8,7 +8,7 @@
  * @see https://img.ly/docs/cesdk/js/plugins/vectorizer/
  */
 
-import CreativeEditorSDK from '@cesdk/cesdk-js';
+import type CreativeEditorSDK from '@cesdk/cesdk-js';
 
 import {
   BlurAssetSource,
