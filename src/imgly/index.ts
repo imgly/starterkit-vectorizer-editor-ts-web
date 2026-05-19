@@ -8,10 +8,11 @@
  * @see https://img.ly/docs/cesdk/js/plugins/vectorizer/
  */
 
-import CreativeEditorSDK from '@cesdk/cesdk-js';
+import type CreativeEditorSDK from '@cesdk/cesdk-js';
 
 import {
   BlurAssetSource,
+  ImageColorsAssetSource,
   ColorPaletteAssetSource,
   CropPresetsAssetSource,
   DemoAssetSources,
@@ -73,6 +74,7 @@ export async function initVectorizerEditor(cesdk: CreativeEditorSDK) {
   // ============================================================================
 
   // Color palettes for design
+  await cesdk.addPlugin(new ImageColorsAssetSource());
   await cesdk.addPlugin(new ColorPaletteAssetSource());
 
   // Typeface/font assets

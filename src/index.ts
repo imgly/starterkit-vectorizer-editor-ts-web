@@ -1,9 +1,10 @@
 /**
  * CE.SDK Vectorizer Editor Starterkit - Main Entry Point
  *
- * A design editor with image vectorization for converting raster images to vectors.
+ * A design editor with image vectorization prominently featured.
+ * Click on an image to see the "Vectorize" option in the canvas menu.
  *
- * @see https://img.ly/docs/cesdk/js/getting-started/
+ * @see https://img.ly/docs/cesdk/js/plugins/vectorizer/
  */
 
 import CreativeEditorSDK from '@cesdk/cesdk-js';
@@ -16,13 +17,12 @@ import { resolveAssetPath } from './imgly/resolveAssetPath';
 // ============================================================================
 
 const config = {
-  userId: 'starterkit-vectorizer-editor-user'
+  userId: 'starterkit-vectorizer-editor-user',
 
-  // Local assets
-  // baseURL: `/assets/`,
+  // IMG.LY CDN (for quick testing only, NOT recommended for production)
 
-  // License key (required for production)
-  // license: 'YOUR_LICENSE_KEY',
+  // Local assets for development
+
 };
 
 // ============================================================================
