@@ -4,13 +4,24 @@
  * A design editor with image vectorization prominently featured.
  * Click on an image to see the "Vectorize" option in the canvas menu.
  *
- * @see https://img.ly/docs/cesdk/js/plugins/vectorizer/
+ * @see https://img.ly/docs/cesdk/js/edit-image/vectorize-2b4c7f/
  */
 
 import CreativeEditorSDK from '@cesdk/cesdk-js';
 
 import { initVectorizerEditor } from './imgly';
-import { resolveAssetPath } from './imgly/resolveAssetPath';
+
+
+/**
+ * Demo assets for this example (scene archives, …) are loaded from the
+ * IMG.LY CDN by default. To host them yourself, copy this kit's asset
+ * folder to your own CDN or server and change this constant — or set it to
+ * `''` and place the files in this app's `public/` directory. No trailing
+ * slash.
+ */
+export const DEMO_ASSETS_BASE_URL: string =
+  import.meta.env.VITE_DEMO_ASSETS_BASE_URL ||
+  'https://staticimgly.com/imgly/cesdk-web-examples-data/1.82.1-rc.0/starterkit-vectorizer-editor';
 
 // ============================================================================
 // Configuration
@@ -42,7 +53,7 @@ CreativeEditorSDK.create('#cesdk_container', config)
 
     // Load the vectorizer demo scene from the public showcases URL
     // This scene contains an image optimized for demonstrating vectorization
-    await cesdk.loadFromArchiveURL(resolveAssetPath('/assets/scene.archive'));
+    await cesdk.load(`${DEMO_ASSETS_BASE_URL}/assets/scene/scene.scene`);
 
     // Select the image block for immediate vectorization demonstration
     const imageBlock = cesdk.engine.block.findByName('SelectedImage')[0];
