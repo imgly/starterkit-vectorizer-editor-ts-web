@@ -10,8 +10,18 @@
 import CreativeEditorSDK from '@cesdk/cesdk-js';
 
 import { initVectorizerEditor } from './imgly';
-import { DEMO_ASSETS_BASE_URL } from './imgly/demo-assets';
 
+
+/**
+ * Demo assets for this example (scene archives, …) are loaded from the
+ * IMG.LY CDN by default. To host them yourself, copy this kit's asset
+ * folder to your own CDN or server and change this constant — or set it to
+ * `''` and place the files in this app's `public/` directory. No trailing
+ * slash.
+ */
+export const DEMO_ASSETS_BASE_URL: string =
+  import.meta.env.VITE_DEMO_ASSETS_BASE_URL ||
+  'https://staticimgly.com/imgly/cesdk-web-examples-data/1.82.3/starterkit-vectorizer-editor';
 
 // ============================================================================
 // Configuration
@@ -32,6 +42,8 @@ const config = {
 
 CreativeEditorSDK.create('#cesdk_container', config)
   .then(async (cesdk) => {
+    // Debug access (remove in production)
+    (window as any).cesdk = cesdk;
 
     await initVectorizerEditor(cesdk);
 
@@ -43,8 +55,8 @@ CreativeEditorSDK.create('#cesdk_container', config)
     // This scene contains an image optimized for demonstrating vectorization
     await cesdk.load(`${DEMO_ASSETS_BASE_URL}/assets/scene/scene.scene`);
 
-    // Select the first image block for immediate vectorization demonstration
-    const imageBlock = cesdk.engine.block.findByKind('image')[0];
+    // Select the image block for immediate vectorization demonstration
+    const imageBlock = cesdk.engine.block.findByName('SelectedImage')[0];
     if (imageBlock) {
       cesdk.engine.block.select(imageBlock);
     }
